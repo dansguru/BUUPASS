@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUUPASS | Flight preview</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="booking-widget.css">
+  <link rel="stylesheet" href="booking.css">
+  <link rel="stylesheet" href="booking-addons.css">
+</head>
+<body><div class="buupass-prototype-note" id="buupass-prototype-note" role="note"><strong>BUUPASS preview:</strong> Flight pages use the Jambojet design and sample flight data. Bus schedules and fares are copied from BUSCAR and are also sample data; confirm current availability before booking.</div>
+  <header class="bk-top"><div class="bk-wrap">
+    <a class="brand" href="index.html" aria-label="BUUPASS home">BUUPASS</a>
+    <nav class="buupass-booking-tabs" aria-label="Products"><a href="buses/index.html">BUSES</a><a href="index.html#booking-form">FLIGHTS</a></nav>
+    <a class="bk-login" href="index.html#rewards"><svg class="bk-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.7-4 3-6 7-6s6.3 2 7 6"/></svg> Loyalty Log in</a>
+  </div></header>
+
+  <main class="bk-wrap">
+    <section class="bk-bar" aria-label="Trip summary">
+      <div><h1 id="title"></h1><p id="dates"></p><button class="bk-edit" id="edit" aria-expanded="false"><svg class="bk-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16.5-.8 4.3 4.3-.8L19.7 7.8a2.1 2.1 0 0 0-3-3z"/><path d="m14.8 6.7 3 3"/></svg> Edit search</button></div>
+      <div class="bk-cart">
+        <button class="bk-cartbtn" id="cart" aria-expanded="false" aria-label="Trip cost breakdown"><svg class="bk-icon bk-cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 9H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span id="count">0</span><small>âŒ„</small></button>
+        <button class="bk-next" id="next" disabled>Next</button>
+      </div>
+      <div class="bk-cartpop" id="cartpop" hidden></div>
+    </section>
+    <div class="bk-editwrap" id="editwrap" hidden><div id="bw-edit"></div></div>
+
+    <ol class="bk-steps" id="steps"></ol>
+    <div id="view"></div>
+  </main>
+  <script src="jm-data.js"></script>
+  <script src="booking-widget.js"></script>
+  <script src="booking-addons.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>
+

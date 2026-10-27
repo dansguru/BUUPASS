@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUUPASS | Flights</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="explore.css">
+  <link rel="stylesheet" href="booking-widget.css">
+</head>
+<body><div class="buupass-prototype-note" id="buupass-prototype-note" role="note"><strong>BUUPASS preview:</strong> Flight pages use the Jambojet design and sample flight data. Bus schedules and fares are copied from BUSCAR and are also sample data; confirm current availability before booking.</div>
+  <div class="utility-bar"><div class="utility-inner">
+    <a href="#buupass-prototype-note"><svg class="support-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H9l-5 4z"/><path d="M8 9h8m-8 4h5"/></svg> Booking contact not configured</a>
+    <button class="icon-button" aria-label="Search">âŒ•</button>
+    <button class="icon-button globe" aria-label="Choose language">â—Ž</button>
+    <button class="currency">KES <span>âŒ„</span></button>
+    <a href="index.html#rewards" class="loyalty"><span aria-hidden="true">â™Ÿ</span> Loyalty Log in</a>
+  </div></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="BUUPASS home">BUUPASS</a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">â˜°</button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/buses/index.html">BUSES</a>
+      <a href="/index.html#booking-form">FLIGHTS</a>
+      <a href="/index.html#explore">EXPLORE</a>
+      <a href="index.html#rewards">JM REWARDS</a>
+      <a href="index.html#travel-info">TRAVEL INFO</a>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html" aria-label="Home">âŒ‚</a><i>â€º</i><a href="index.html#destinations">Destinations</a><i>â€º</i><b id="crumb"></b>
+    </nav>
+    <h1 class="page-title" id="page-title"></h1>
+
+    <img class="banner" id="banner" src="https://cdn.jambojet.com/media/2p0jha1r/ebb-v2_ebb-web-banner.jpg" alt="">
+
+    <section class="explore-booking" aria-label="Flight search"><div id="bw-mount"></div></section>
+
+    <section class="intro-box" id="intro" aria-live="polite"></section>
+
+    <div class="tabs" role="tablist" aria-label="Route information">
+      <button class="tab" role="tab" id="tab-overview" aria-controls="overview" aria-selected="true">Overview</button>
+      <button class="tab" role="tab" id="tab-faqs" aria-controls="faqs" aria-selected="false">FAQs</button>
+    </div>
+
+    <section class="panel" id="overview" role="tabpanel" aria-labelledby="tab-overview"></section>
+    <section class="panel" id="faqs" role="tabpanel" aria-labelledby="tab-faqs" hidden></section>
+
+    <section class="other-routes">
+      <h2>More from <span id="origin-name"></span></h2>
+      <div class="chips" id="chips"></div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="legal page-container">
+      <p>Copyright Â© 2026 BUUPASS prototype. All rights reserved. Usage of this website states your compliance of our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></p>
+      <p><a href="index.html">Back to home</a></p>
+    </div>
+    <div class="footer-pattern" aria-hidden="true"></div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">âŒƒ</button>
+
+  <script src="jm-data.js"></script>
+  <script src="booking-widget.js"></script>
+  <script>
+  (() => {
+    /* ---------- Data: add more routes here and the page adapts ---------- */
+    const AIRPORTS = JM.A;
+    const ROUTES = {
+      'NBO-EBB': {
+        fareUSD: 170, fareKES: 22950, duration: '1 hour 30 minutes', short: '~1h 30m',
+        campaignStart: '2026-10-28',
+        banner: 'https://cdn.jambojet.com/media/2p0jha1r/ebb-v2_ebb-web-banner.jpg',
+        times: { out: ['09:30', '11:00'], back: ['11:40', '13:10'] },
+        blurb: "Perched on the shores of Lake Victoria and just a short transfer from Uganda's capital Kampala, Entebbe is one of East Africa's busiest hubs.",
+        requirements: [
+          'Kenyan citizens can enter Uganda visa-free for stays of up to 90 days. Your passport must be valid for at least 6 months from your date of entry.',
+          'Travellers aged 1 year and above must carry a valid yellow fever vaccination certificate.'
+        ],
+        insurance: true
+      }
+    };
+    const $ = id => document.getElementById(id);
+    const setUrl = u => { try { history.replaceState(null, '', u); } catch (e) { /* file:// pages can't rewrite the URL */ } };
+    const routeSlug = (a, b) => `flights-${AIRPORTS[a].city.toLowerCase()}-to-${AIRPORTS[b].city.toLowerCase()}`;
+    const kes = n => 'KES ' + n.toLocaleString('en-KE');
+    const durationText = minutes => minutes < 60 ? `${minutes} minutes` : JM.fmtDur(minutes);
+    const params = new URLSearchParams(location.search);
+
+    /* ---------- Resolve state from URL (defaults focus on Nairobi â†’ Entebbe) ---------- */
+    const valid = c => c && AIRPORTS[c.toUpperCase()] ? c.toUpperCase() : null;
+    // Supports ?route=flights-nairobi-to-entebbe (same slug style as the live site) or ?from=NBO&to=EBB
+    const codeOf = name => Object.keys(AIRPORTS).find(c => AIRPORTS[c].city.toLowerCase() === (name || '').toLowerCase());
+    const slug = (params.get('route') || '').match(/^flights-(.+)-to-(.+)$/);
+    let from = (slug && codeOf(slug[1])) || valid(params.get('from')) || 'NBO';
+    let to = (slug && codeOf(slug[2])) || valid(params.get('to')) || 'EBB';
+    if (from === to) to = from === 'NBO' ? 'EBB' : 'NBO';
+
+    const iso = d => d.toISOString().slice(0, 10);
+    const addDays = (s, n) => { const d = new Date(s + 'T00:00:00'); d.setDate(d.getDate() + n); return iso(d); };
+    const today = iso(new Date());
+
+
+    const route = () => ROUTES[from + '-' + to] || ROUTES[to + '-' + from] || null;
+    const hasFare = () => !!ROUTES[from + '-' + to] || !!ROUTES[to + '-' + from];
+
+    function defaultDepart(r) {
+      const tomorrow = addDays(today, 1);
+      return r && r.campaignStart && r.campaignStart > tomorrow ? r.campaignStart : tomorrow;
+    }
+
+    /* ---------- Rendering ---------- */
+    function render() {
+      const f = AIRPORTS[from], t = AIRPORTS[to], r = route(), info = JM.routeInfo(from, to);
+      const fromTxt = f.city, toTxt = t.city;
+      const title = r ? `Flights ${fromTxt} to ${toTxt} from ${kes(r.fareKES)} | BUUPASS`
+        : info && info.fareKES ? `Flights ${fromTxt} to ${toTxt} from ${kes(info.fareKES)} | BUUPASS`
+          : `Flights ${fromTxt} to ${toTxt} | BUUPASS`;
+      document.title = title;
+      $('page-title').textContent = title;
+      $('crumb').textContent = title;
+      $('origin-name').textContent = fromTxt;
+
+      const banner = $('banner');
+      if (r) { banner.src = r.banner; banner.alt = `Fly to ${toTxt} from ${fromTxt}, from $${r.fareUSD} one way`; banner.hidden = false; }
+      else banner.hidden = true;
+
+      if (!r) {
+        if (info) {
+          const fareText = info.fareKES ? `Fares from ${kes(info.fareKES)} one way` : 'Fares vary by date and availability';
+          const routeDurationText = info.durationMinutes ? `About ${durationText(info.durationMinutes)}` : 'Flight duration not listed';
+          $('intro').innerHTML = `<h1>Flights from ${fromTxt} to ${toTxt}</h1>
+            <p>${fareText}. ${routeDurationText}. ${info.frequency}.</p>`;
+          $('overview').innerHTML = `<h2>Route details: ${fromTxt} to ${toTxt}</h2>
+            <ul>
+              <li><b>Route:</b> ${f.name} (${from}) to ${t.name} (${to})</li>
+              <li><b>One-way fare:</b> ${fareText}</li>
+              <li><b>Flight duration:</b> ${routeDurationText}</li>
+              <li><b>Frequency:</b> ${info.frequency}</li>
+            </ul>`;
+          $('faqs').innerHTML = `<h2>Frequently asked questions</h2>
+            <details><summary>How much is a flight from ${fromTxt} to ${toTxt}?</summary><p>${fareText}. Final fares depend on dates and availability.</p></details>
+            <details><summary>How long is the flight from ${fromTxt} to ${toTxt}?</summary><p>${routeDurationText}.</p></details>
+            <details><summary>How often does BUUPASS fly this route?</summary><p>${info.frequency}. Exact departure times depend on the date selected.</p></details>`;
+          return;
+        }
+        $('intro').innerHTML = `<h1>Flights from ${fromTxt} to ${toTxt}</h1>
+          <p>Search for dates above to see live fares and schedules on this route.</p>
+          <p class="no-fare">Route details for ${fromTxt} to ${toTxt} are not published here yet. Try <a class="text-link" href="?route=flights-nairobi-to-entebbe">Nairobi to Entebbe</a>.</p>`;
+        $('overview').innerHTML = '<p class="sub">Choose a featured route below to see schedules and travel requirements.</p>';
+        $('faqs').innerHTML = '';
+        return;
+      }
+
+      $('intro').innerHTML = `
+        <h1>Daily Flights from ${fromTxt} to ${toTxt}: Book Affordable Fares Starting at $${r.fareUSD} or ${kes(r.fareKES).replace('KES ', 'KES ')} one way.</h1>
+        <p>Discover the convenience of flying from ${fromTxt} to ${toTxt} with BUUPASS. With daily flights connecting ${f.name} (${from}) to ${t.name} (${to}), travelling between ${f.country} and ${t.country} has never been easier. Enjoy affordable fares starting from just $${r.fareUSD}, or ${kes(r.fareKES)}, one way, inclusive of taxes, fees, and surcharges.</p>
+        <h2>Your Gateway to ${t.country}'s Business and Leisure Destinations</h2>
+        <p>${r.blurb} Whether you're travelling for business, embarking on a weekend escape, or connecting to other destinations in the region, BUUPASS puts ${toTxt} within easy reach.</p>
+        <p>Our daily flights from ${fromTxt} to ${toTxt} take just ${r.duration}, allowing you to make the most of your time. With convenient departure times, you can plan your trip around your schedule:</p>`;
+
+      // schedule always reads outbound from the route's home direction
+      const home = ROUTES[from + '-' + to] ? [from, to, r.times.out, r.times.back] : [to, from, r.times.out, r.times.back];
+      const [a, b] = [AIRPORTS[home[0]].city, AIRPORTS[home[1]].city];
+      const row = (x, y, tm) => `<tr><td>${x} â†’ ${y}</td><td>${tm[0]}*</td><td>${tm[1]}*</td><td>${r.short}</td></tr>`;
+
+      const reqs = r.requirements.map(x => `<li><span class="tick" aria-hidden="true">âœ“</span><span>${x}</span></li>`).join('');
+      const insurance = r.insurance ? `
+        <div class="notice">
+          <h3>Mandatory Travel Health Insurance for Passengers Travelling to Kenya.</h3>
+          <p>From 5 October 2026, eligible non-Kenyan travellers entering Kenya for a stay of less than 12 months must hold valid inbound travel health insurance issued by a local Kenyan insurer, unless they qualify for an exemption under the applicable regulations.</p>
+          <h4>Who is exempt?</h4>
+          <ul>
+            <li>Kenyan citizens.</li><li>Holders of valid residence status in Kenya.</li>
+            <li>Citizens of East African Community (EAC) Partner States.</li><li>Persons seeking asylum.</li>
+            <li>Holders of diplomatic, official and service passports.</li>
+            <li>Members of the crew of any ship, aircraft, train, vehicle or carrier.</li>
+            <li>Transit passengers who do not seek entry into Kenya.</li>
+          </ul>
+          <p>Travellers who do not fall under any of the above should arrange the mandatory cover before travelling to Kenya.</p>
+          <h4>How to obtain the required insurance</h4>
+          <ul>
+            <li><b>If you require an eTA:</b> you will be prompted to purchase the cover as part of your application on the official Kenya eTA portal.</li>
+            <li><b>If you are exempt from the eTA but not from the insurance requirement:</b> buy the cover through the eCitizen Insurance portal. Your electronic policy is issued once payment is confirmed.</li>
+            <li><b>Existing foreign travel insurance:</b> foreign travel health insurance does not satisfy this requirement. You must obtain cover from a local Kenyan insurer.</li>
+            <li><b>Keep your policy accessible:</b> it may be checked during check-in, and immigration officers will verify your cover on arrival.</li>
+            <li><b>Multiple entries:</b> the policy can be used for multiple entries within its 90-day validity period. A new policy is needed after that unless you are exempt.</li>
+          </ul>
+          <p>Each non-exempt traveller, including children, must have their own individual valid cover. For entry requirements and exemptions, contact the State Department for Immigration and Citizen Services. For purchase and payment enquiries, contact eCitizen.</p>
+        </div>` : '';
+
+      $('overview').innerHTML = `
+        <div class="two-col">
+          <div>
+            <p class="kicker">Daily flights, one easy hop</p>
+            <h2>Your Gateway Between ${a} and ${b}</h2>
+            <p>${r.blurb}</p>
+            <p>With daily flights connecting ${AIRPORTS[home[0]].name} to ${AIRPORTS[home[1]].name} in around 90 minutes, you can close a meeting in ${a} and be watching the sunset over the lake by evening. Find your flight time below and lock in fares from $${r.fareUSD} one way.</p>
+            <table class="times">
+              <thead><tr><th>ROUTE</th><th>DEPARTS</th><th>ARRIVES</th><th>DURATION</th></tr></thead>
+              <tbody>${row(a, b, r.times.out)}${row(b, a, r.times.back)}</tbody>
+            </table>
+            <p class="note">* Times are subject to change. Check your booking for the final schedule.</p>
+          </div>
+          <div>
+            <p class="kicker">Before you fly</p>
+            <h2>Travel requirements for ${t.country}</h2>
+            <p class="sub">Everything you need to have ready before departure.</p>
+            <ul class="checklist">${reqs}</ul>
+          </div>
+        </div>${insurance}`;
+
+      const faq = [
+        [`How long is the flight from ${fromTxt} to ${toTxt}?`, `About ${r.duration}.`],
+        [`How much is a flight from ${fromTxt} to ${toTxt}?`, `Fares start from $${r.fareUSD} or ${kes(r.fareKES)} one way, including taxes, fees and surcharges.`],
+        [`How often does BUUPASS fly ${fromTxt} to ${toTxt}?`, `Daily. Departures are at ${r.times.out[0]} from ${a} and ${r.times.back[0]} from ${b}, subject to change.`],
+        [`Which airports does this route use?`, `${f.name} (${from}) and ${t.name} (${to}).`],
+        [`Do I need a visa for ${t.country}?`, r.requirements[0]]
+      ];
+      $('faqs').innerHTML = `<h2>Frequently asked questions</h2>` +
+        faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+    }
+
+    /* ---------- Featured route chips ---------- */
+    function chips() {
+      const list = JM.NET[from] || [];
+      $('chips').innerHTML = list.map(c => `<a class="chip" href="?route=${routeSlug(from, c)}">${AIRPORTS[from].city} â†’ ${AIRPORTS[c].city}</a>`).join('');
+    }
+
+    /* ---------- Interactions ---------- */
+    function onRoute(s) {
+      if (!s.from || !s.to) return;
+      from = s.from; to = s.to; render(); chips();
+      setUrl(`?route=${routeSlug(from, to)}${location.hash}`);
+    }
+    function mountWidget() {
+      const dep = params.get('depart') || defaultDepart(route());
+      JMWidget.mount($('bw-mount'), {
+        from, to, dep, ret: params.get('return') || addDays(dep, 27),
+        adt: +(params.get('adt') || params.get('pax') || 1), chd: +(params.get('chd') || 0), inf: +(params.get('inf') || 0),
+        trip: params.get('trip') || 'roundtrip', onChange: onRoute
+      });
+    }
+
+    // tabs (supports #faqs deep link)
+    function showTab(name) {
+      ['overview', 'faqs'].forEach(n => {
+        $(n).hidden = n !== name;
+        $('tab-' + n).setAttribute('aria-selected', String(n === name));
+      });
+    }
+    $('tab-overview').addEventListener('click', () => { showTab('overview'); setUrl(location.pathname + location.search); });
+    $('tab-faqs').addEventListener('click', () => { showTab('faqs'); setUrl(location.pathname + location.search + '#faqs'); });
+    if (location.hash === '#faqs') showTab('faqs');
+
+    // header + back to top
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.addEventListener('click', () => {
+      const open = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!open));
+      document.querySelector('.main-nav').classList.toggle('open', !open);
+    });
+    document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    render(); chips(); mountWidget();
+  })();
+  </script>
+</body>
+</html>
+
+

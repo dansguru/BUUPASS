@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BUUPASS â€” explore Kenya and beyond. Book flights, check in online and discover our services.">
+  <title>BUUPASS | Explore Kenya and Beyond</title>
+  <link rel="preconnect" href="https://cdn.jambojet.com">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="booking-widget.css">
+</head>
+<body id="top"><div class="buupass-prototype-note" id="buupass-prototype-note" role="note"><strong>BUUPASS preview:</strong> Flight pages use the Jambojet design and sample flight data. Bus schedules and fares are copied from BUSCAR and are also sample data; confirm current availability before booking.</div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="BUUPASS home">BUUPASS</a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">â˜°</button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="buses/index.html">BUSES</a>
+      <a href="#booking-form">FLIGHTS</a>
+      <a href="#explore">EXPLORE</a>
+      <a href="#rewards">JM REWARDS</a>
+      <a href="#travel-info">TRAVEL INFO</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Featured destinations">
+      <div class="hero-slides">
+        <article class="hero-slide active" style="--hero-image:url('https://cdn.jambojet.com/media/esufymro/family_experience.jpg')">
+          <div class="hero-shade"></div>
+          <div class="hero-copy"><h1>Make memories<br>that take you places.</h1><p>Experience #MoreThanAJourney</p></div>
+        </article>
+        <article class="hero-slide" style="--hero-image:url('https://cdn.jambojet.com/media/rpuhyrn0/lau-1500-x-500px.jpg')">
+          <div class="hero-shade"></div><div class="hero-copy"><h1>Your next escape<br>starts here.</h1><p>Discover more with BUUPASS</p></div>
+        </article>
+        <article class="hero-slide" style="--hero-image:url('https://cdn.jambojet.com/media/wmgd3f1v/business_man.jpg')">
+          <div class="hero-shade"></div><div class="hero-copy"><h1>Seal more deals<br>with every landing.</h1><p>Experience #MoreThanAJourney</p></div>
+        </article>
+        <article class="hero-slide" style="--hero-image:url('https://cdn.jambojet.com/media/x3ipjhb1/ebb_bnanner_2-1.png')">
+          <!-- Entebbe slide: clicking opens the Nairobi â†’ Entebbe explore page -->
+          <div class="hero-shade"></div><div class="hero-copy"><h1><a href="explore.html?route=flights-nairobi-to-entebbe">Fly to Entebbe</a></h1><p>Your next adventure is closer than ever.</p></div>
+        </article>
+        <article class="hero-slide" style="--hero-image:url('https://cdn.jambojet.com/media/ytbffvtq/_nairobi-1500-x-500px.jpg')">
+          <div class="hero-shade"></div><div class="hero-copy"><h1><a href="explore.html?route=flights-nairobi-to-kisumu">Explore Kenya<br>and beyond.</a></h1><p>More places. More possibilities.</p></div>
+        </article>
+      </div>
+      <div class="hero-dots" aria-label="Choose featured slide">
+        <button class="hero-dot active" aria-label="Slide 1" aria-pressed="true"></button>
+        <button class="hero-dot" aria-label="Slide 2" aria-pressed="false"></button>
+        <button class="hero-dot" aria-label="Slide 3" aria-pressed="false"></button>
+        <button class="hero-dot" aria-label="Slide 4" aria-pressed="false"></button>
+        <button class="hero-dot" aria-label="Slide 5" aria-pressed="false"></button>
+      </div>
+    </section>
+
+    <section class="booking-wrap" aria-label="Flight booking">
+      <div class="booking-tabs" role="tablist" aria-label="Booking options">
+        <button class="booking-tab selected" role="tab" aria-selected="true" data-mode="flight">BOOK FLIGHT</button>
+        <button class="booking-tab" role="tab" aria-selected="false" data-mode="checkin">ONLINE CHECK IN</button>
+        <button class="booking-tab" role="tab" aria-selected="false" data-mode="manage">MANAGE BOOKING</button>
+      </div>
+      <div class="booking-panel home-booking-panel" id="booking-form">
+        <div id="home-flight-search" aria-label="Search flights"></div>
+        <div class="extra-fields" id="extra-fields" hidden>
+          <label class="field"><input aria-label="Booking reference" placeholder="Booking reference" /></label>
+          <label class="field"><input aria-label="Last name" placeholder="Last name" /></label>
+          <button type="button" class="search-button" id="extra-continue">CONTINUE</button>
+        </div>
+        <p class="form-message" id="form-message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="intro-cards page-container" id="explore" aria-label="Discover BUUPASS">
+      <article class="intro-card why-card">
+        <p class="eyebrow">WHY BUUPASS?</p>
+        <h2>Experience Kenya and Beyond</h2>
+        <p>With over 400 weekly flights, a reliable schedule, and on-time performance, we make travel simple for both leisure and business travellers across Kenya.</p>
+        <a class="text-link" href="#travel-info">Experience #MoreThanAJourney <span>â†’</span></a>
+      </article>
+      <a class="image-card destination-promo" href="explore.html?route=flights-nairobi-to-entebbe" aria-label="Learn more about flights to Entebbe">
+        <img src="https://cdn.jambojet.com/media/x3ipjhb1/ebb_bnanner_2-1.png" alt="Fly to Entebbe from Nairobi">
+        <span class="image-cta">LEARN MORE &gt;&gt;</span>
+      </a>
+      <article class="destination-card" id="destinations">
+        <div class="destination-art">
+          <h2>Explore our Destinations</h2>
+          <div class="map-and-copy">
+            <div class="kenya-map" aria-label="Illustration of Kenya and regional destinations">
+              <span class="map-pin pin-1">â—</span><span class="map-pin pin-2">â—</span><span class="map-pin pin-3">â—</span><span class="map-pin pin-4">â—</span>
+              <a class="map-label label-1" href="explore.html?route=flights-nairobi-to-entebbe">Entebbe</a>
+              <a class="map-label label-2" href="explore.html?route=flights-nairobi-to-kisumu">Kisumu</a>
+              <a class="map-label label-3" href="explore.html?route=flights-nairobi-to-entebbe">Nairobi</a>
+              <a class="map-label label-4" href="explore.html?route=flights-nairobi-to-mombasa">Mombasa</a>
+            </div>
+            <p>Enjoy affordable, convenient, and reliable direct flights across Kenya and the region.</p>
+          </div>
+        </div>
+        <a class="destination-cta" href="explore/cheap-flights/cheap-direct-flights-within-kenya/">VIEW DESTINATIONS &gt;&gt;</a>
+      </article>
+    </section>
+
+    <section class="services page-container" id="travel-info">
+      <div class="section-heading">
+        <div><p class="eyebrow">EXPLORE MORE</p><h2>Deals &amp; services</h2></div>
+        <a class="text-link" href="#all-services">See all our Services <span>â†’</span></a>
+      </div>
+      <div class="service-grid" id="all-services">
+        <a class="service-tile" href="#cargo"><img src="https://cdn.jambojet.com/media/ov0lqtg2/jambojet_cargo_explore.jpg?cropmode=percentaje&width=480" alt="JM Cargo â€” move documents and parcels"><span class="tile-label">LEARN ABOUT JM CARGO &gt;&gt;</span></a>
+        <a class="service-tile" href="explore.html?route=flights-nairobi-to-entebbe"><img src="https://cdn.jambojet.com/media/w54hrxav/ebb_web_poster.jpg?cropmode=percentaje&width=480" alt="Fly to Entebbe from Nairobi â€” special offer"><span class="tile-label">EXPLORE THE OFFER &gt;&gt;</span></a>
+        <a class="service-tile rewards-tile" id="rewards" href="#rewards-details"><img src="https://cdn.jambojet.com/media/qpxlgybs/jambojet-jmrewards.jpg?cropmode=percentaje&width=480" alt="JM Rewards â€” fly more, earn more"><span class="tile-label">SIGN UP NOW &gt;&gt;</span></a>
+      </div>
+    </section>
+
+    <section class="know-before page-container">
+      <div class="center-heading"><p class="eyebrow">GET READY</p><h2>Know before you fly</h2></div>
+      <div class="info-grid">
+        <a class="info-card" href="explore.html?route=flights-nairobi-to-entebbe#faqs"><h3>Travel FAQs</h3><p>Get answers to the questions travellers ask most.</p></a>
+        <a class="info-card" href="travel-info/baggage/baggage-allowance/index.html"><h3>Baggage allowances</h3><p>See what you can carry and how to purchase checked baggage.</p></a>
+        <a class="info-card" href="#checkin"><h3>Check in online</h3><p>Save time at the airport by checking in before your flight.</p></a>
+        <a class="info-card" href="#manage"><h3>Manage your trip</h3><p>Add baggage or meals, select a seat and review your booking.</p></a>
+      </div>
+    </section>
+
+    <section class="awards page-container">
+      <div class="center-heading"><p class="eyebrow">RECOGNISED &amp; CERTIFIED</p><h2>Award-winning and safety-first</h2></div>
+      <img src="https://cdn.jambojet.com/media/juxfamok/awards.png?cropmode=percentaje&width=1200" alt="Africa's Leading Low-Cost Airline, IOSA Certified, Certified Top Employer 2025-2026">
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-main page-container">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">BUUPASS</a>
+        <div class="socials" aria-label="Social media">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">â—Ž</a>
+          <a href="#" aria-label="X">ð•</a>
+          <a href="#buupass-prototype-note" aria-label="Booking contact not configured"><svg class="support-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H9l-5 4z"/><path d="M8 9h8m-8 4h5"/></svg></a>
+          <a href="#" aria-label="TikTok">â™ª</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <nav class="footer-cols" aria-label="Footer">
+        <div>
+          <h4>ABOUT BUUPASS</h4>
+          <a href="#">Our story</a>
+          <a href="#">Press Room</a>
+          <a href="#">Advertise with BUUPASS</a>
+          <a href="#">Careers</a>
+          <a href="#">BUUPASS Sustainability</a>
+          <a href="#">On Time Performance</a>
+          <a href="#">Our Fleet</a>
+          <a href="#">Offices</a>
+        </div>
+        <div>
+          <h4>OUR PRODUCTS</h4>
+          <a href="#">BUUPASS Cargo</a>
+          <a href="#">BUUPASS Rewards</a>
+          <a href="#">BUUPASS Charters</a>
+          <a href="#">BUUPASS Shukrani</a>
+          <a href="#">Jaza Pole Pole</a>
+          <a href="#">BUUPASS Groups</a>
+        </div>
+        <div>
+          <h4>SELF CARE/SUPPORT</h4>
+          <a href="#">Manage Booking</a>
+          <a href="#">Online check-in</a>
+          <a href="#">Refund Form</a>
+          <a href="#">Business Partner</a>
+          <a href="#">FAQs</a>
+          <a href="#">Contact us</a>
+          <a href="#">Terms and Conditions</a>
+          <a href="#">BUUPASS Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">BUUPASS Connect (Intranet)</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="payments page-container">
+      <span>Payment methods</span>
+      <img src="https://cdn.jambojet.com/assets/imgs/payment-methods/credit-cards/master-card-logo.svg?1200" alt="Mastercard">
+      <!-- Visa: no URL was supplied. Add it here, e.g. <img src="..." alt="Visa"> -->
+      <img src="https://cdn.jambojet.com/assets/imgs/payment-methods/credit-cards/mpesa-seek-logo.svg?1200" alt="M-PESA">
+      <img src="https://cdn.jambojet.com/assets/imgs/payment-methods/credit-cards/airtel-logo.svg?1200" alt="Airtel Money">
+      <img src="https://cdn.jambojet.com/assets/imgs/payment-methods/credit-cards/equitel_logo.svg?1200" alt="Equitel">
+      <img src="https://cdn.jambojet.com/assets/imgs/payment-methods/credit-cards/american-express.svg?1200" alt="American Express">
+      <img src="https://cdn.jambojet.com/assets/imgs/payment-methods/credit-cards/paypal.svg?1200" alt="PayPal">
+    </div>
+
+    <div class="legal page-container">
+      <p>Copyright Â© 2026 BUUPASS prototype. All rights reserved. Usage of this website states your compliance of our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></p>
+      <p>Powered by Stack Overflight</p>
+    </div>
+    <div class="footer-pattern" aria-hidden="true"></div>
+  </footer>
+
+  <a class="prototype-float" href="#buupass-prototype-note" aria-label="About this preview"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg></a>
+  <script src="jm-data.js"></script>
+  <script src="booking-widget.js"></script>
+  <script>
+    (() => {
+      document.querySelectorAll('.destination-promo img, .service-tile img, .awards img').forEach(img => {
+        if (img.complete) return;
+        img.classList.add('media-shimmer');
+        const clearShimmer = () => img.classList.remove('media-shimmer');
+        img.addEventListener('load', clearShimmer, { once: true });
+        img.addEventListener('error', clearShimmer, { once: true });
+      });
+      const slides = [...document.querySelectorAll('.hero-slide')];
+      const dots = [...document.querySelectorAll('.hero-dot')];
+      let active = 0, timer;
+      function showSlide(index) {
+        active = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === active));
+        dots.forEach((dot, i) => { dot.classList.toggle('active', i === active); dot.setAttribute('aria-pressed', String(i === active)); });
+      }
+      function restart() { clearInterval(timer); timer = setInterval(() => showSlide(active + 1), 6000); }
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); restart(); }));
+      restart();
+
+      const tabs = [...document.querySelectorAll('.booking-tab')];
+      const flightSearch = document.getElementById('home-flight-search');
+      const extraFields = document.getElementById('extra-fields');
+      const formMessage = document.getElementById('form-message');
+      JMWidget.mount(flightSearch, {
+        trip: 'roundtrip',
+        onSearch: state => {
+          const from = JM.A[state.from].city.toLowerCase(), to = JM.A[state.to].city.toLowerCase();
+          const query = new URLSearchParams({ route: `flights-${from}-to-${to}`, depart: state.dep, trip: state.trip, pax: String(state.adt), adt: String(state.adt), chd: String(state.chd), inf: String(state.inf) });
+          if (state.trip === 'roundtrip' && state.ret) query.set('return', state.ret);
+          flightSearch.setAttribute('aria-busy', 'true');
+          window.location.href = state.trip === 'multi' ? JM.bookingUrl(state) : `explore.html?${query.toString()}`;
+        }
+      });
+      tabs.forEach(tab => tab.addEventListener('click', () => {
+        tabs.forEach(item => { const selected = item === tab; item.classList.toggle('selected', selected); item.setAttribute('aria-selected', String(selected)); });
+        const flightMode = tab.dataset.mode === 'flight';
+        flightSearch.hidden = !flightMode;
+        extraFields.hidden = flightMode;
+        formMessage.textContent = '';
+      }));
+      document.getElementById('extra-continue').addEventListener('click', () => {
+        formMessage.textContent = 'Booking support is not connected in this Buupass preview yet.';
+      });
+      const menuToggle = document.querySelector('.menu-toggle');
+      menuToggle.addEventListener('click', () => {
+        const nav = document.querySelector('.main-nav'), expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded)); nav.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>
+
+

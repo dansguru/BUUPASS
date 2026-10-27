@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUUPASS | Destination flights</title>
+  <link rel="stylesheet" href="../../../styles.css">
+  <link rel="stylesheet" href="../../../explore.css">
+  <link rel="stylesheet" href="../../../booking-widget.css">
+  <style>
+    .dt h1.dt-title{color:#e6007e;font-size:24px;margin:22px 0 22px}
+    .dt-banner{position:relative;height:300px;overflow:hidden;background:linear-gradient(160deg,#3b2a8f 0%,#7a2a9a 55%,#e6007e 100%)}
+    .dt-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .dt-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,20,120,.35),rgba(120,20,110,.45))}
+    .dt-banner .logo{position:absolute;z-index:2;top:32px;left:50%;transform:translateX(-50%);color:#fff;font-style:italic;font-weight:700;font-size:20px;white-space:nowrap}
+    .dt-banner .logo small{font-size:11px;color:#ffe000;margin-left:10px;font-style:normal;letter-spacing:.5px}
+    .dt-banner .big{position:absolute;z-index:2;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:clamp(64px,10vw,120px);font-weight:800;text-shadow:0 4px 18px rgba(0,0,0,.4);padding-top:30px}
+    .dt-book{margin:-1px 0 0}
+    .dt-intro{font-size:13px;line-height:1.6;margin:22px 0 26px;color:#333}
+    .dt-intro a,.dt-body a{color:#e6007e}
+    .dt-tabs{display:flex;gap:10px;margin-bottom:-1px;position:relative;z-index:1}
+    .dt-tab{background:#fff;border:1px solid #e3e3e3;border-bottom:0;border-radius:16px 16px 0 0;padding:10px 26px;font:inherit;font-weight:700;color:#444;cursor:pointer}
+    .dt-tab[aria-selected="true"]{color:#e6007e;box-shadow:0 -2px 0 #e6007e inset}
+    .dt-body{background:#fff;border-radius:0 18px 18px 18px;padding:28px 32px;font-size:13px;line-height:1.65;color:#444;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+    .dt-body h3{color:#e6007e;font-size:14px;margin:18px 0 6px}
+    .dt-body h3:first-child{margin-top:0}
+    .dt-body h4{color:#e6007e;font-size:13px;margin:16px 0 4px}
+    .dt-body ul{margin:6px 0 0 18px;padding:0}
+    .dt-body .route-note{margin-top:8px;color:#777;font-size:11px}
+    .dt-after{font-size:13px;line-height:1.6;color:#444;margin:22px 0}
+    .dt-after b{display:block;color:#222;margin:14px 0 4px}
+    .dt-more{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 40px}
+    .dt-card{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;text-decoration:none;
+      background:linear-gradient(160deg,#3b2a8f 0%,#7a2a9a 55%,#e6007e 100%)}
+    .dt-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .dt-card:hover img{transform:scale(1.05)}
+    .dt-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.45))}
+    .dt-card span{position:absolute;z-index:2;left:10px;bottom:10px;color:#ffe000;font-weight:800;font-size:16px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+    .credit{font-size:11px;color:#777;margin:0 0 30px}.credit a{color:#777}
+    @media (max-width:800px){.dt-more{grid-template-columns:repeat(2,1fr)}.dt-banner{height:220px}.dt-body{padding:20px}}
+    @media (max-width:560px){.dt-book .bw-trips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.dt-book .bw-trips label{padding:8px 4px;font-size:11px;text-align:center;white-space:nowrap}.dt-book .bw-promo{grid-column:1/-1;margin-left:0}}
+  </style>
+</head>
+<body><div class="buupass-prototype-note" id="buupass-prototype-note" role="note"><strong>BUUPASS preview:</strong> This prototype uses the Jambojet flight-booking design and sample airline routes and fares. It does not show verified Buupass services. Configure official bus routes, prices, branding and booking contact before publishing.</div>
+  <div class="utility-bar"><div class="utility-inner">
+    <a href="#buupass-prototype-note"><svg class="support-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H9l-5 4z"/><path d="M8 9h8m-8 4h5"/></svg> Booking contact not configured</a>
+    <button class="icon-button" aria-label="Search">âŒ•</button>
+    <button class="icon-button globe" aria-label="Choose language">â—Ž</button>
+    <button class="currency">KES <span>âŒ„</span></button>
+    <a href="../../../index.html#rewards" class="loyalty"><span aria-hidden="true">â™Ÿ</span> Loyalty Log in</a>
+  </div></div>
+
+  <header class="site-header">
+    <a class="brand" href="../../../index.html" aria-label="BUUPASS home">BUUPASS</a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">â˜°</button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/buses/index.html">BUSES</a>
+      <a href="/index.html#booking-form">FLIGHTS</a>
+      <a href="/index.html#explore">EXPLORE</a>
+      <a href="../../../index.html#rewards">JM REWARDS</a>
+      <a href="../../../index.html#travel-info">TRAVEL INFO</a>
+    </nav>
+  </header>
+
+  <main class="page-container dt">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../../../index.html" aria-label="Home">âŒ‚</a><i aria-hidden="true">â€º</i><a href="index.html">Destinations</a><i aria-hidden="true">â€º</i><b id="crumb"></b>
+    </nav>
+    <h1 class="dt-title" id="title"></h1>
+
+    <div class="dt-banner" id="banner"></div>
+    <section class="dt-book" aria-label="Flight search"><div id="bw-mount"></div></section>
+
+    <p class="dt-intro" id="intro"></p>
+
+    <div class="dt-tabs" role="tablist" aria-label="Destination information">
+      <button class="dt-tab" role="tab" id="tab-overview" aria-controls="overview" aria-selected="true">Overview</button>
+      <button class="dt-tab" role="tab" id="tab-todo" aria-controls="todo" aria-selected="false">What to do</button>
+    </div>
+    <section class="dt-body" id="overview" role="tabpanel" aria-labelledby="tab-overview"></section>
+    <section class="dt-body" id="todo" role="tabpanel" aria-labelledby="tab-todo" hidden></section>
+
+    <div class="dt-after" id="after"></div>
+    <div class="dt-more" id="more" aria-label="More destinations"></div>
+    <p class="credit">Photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+  </main>
+
+  <footer id="contact">
+    <div class="legal page-container">
+      <p>Copyright Â© 2026 BUUPASS prototype. All rights reserved. Usage of this website states your compliance of our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></p>
+      <p><a href="../../../index.html">Back to home</a></p>
+    </div>
+    <div class="footer-pattern" aria-hidden="true"></div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">âŒƒ</button>
+
+  <script src="../../../jm-data.js"></script>
+  <script src="../../../booking-widget.js"></script>
+  <script src="../../../dest-data.js"></script>
+  <script>
+  (() => {
+    const $ = id => document.getElementById(id);
+    const requestedKey = (new URLSearchParams(location.search).get('d') || 'lamu').toLowerCase();
+    const key = DEST[requestedKey] ? requestedKey : 'lamu';
+    const destination = DEST[key];
+    const origin = DEST[ORIGIN_FOR(key)];
+    const originLabel = origin.name === 'Nairobi' ? 'Nairobi (JKIA)' : origin.name;
+    const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[char]));
+    const imageHtml = (src, alt, loading = 'lazy') => src
+      ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="${loading}">`
+      : '';
+
+    const title = `Flights From ${originLabel} to ${destination.name}`;
+    document.title = `${title} | BUUPASS`;
+    $('title').textContent = title;
+    $('crumb').textContent = title;
+
+    const bannerPhoto = photoUrl(PHOTOS[key]);
+    $('banner').innerHTML = `${imageHtml(bannerPhoto, destination.name, 'eager')}
+      <div class="logo">BUUPASS <small>#MoreThanAJourney</small></div>
+      <div class="big">${escapeHtml(destination.name)}</div>`;
+
+    $('intro').textContent = `Are you dreaming of a getaway? Fly BUUPASS and experience affordable, convenient, and reliable flights from ${origin.name} to ${destination.name}. ${destination.blurb} With flights from ${originLabel}, BUUPASS makes your journey seamless and unforgettable.`;
+
+    const routeInfo = JM.routeInfo(origin.code, destination.code);
+    const flightDetails = [
+      ['Route', `${origin.airport} to ${destination.airport}`],
+      routeInfo && routeInfo.fareKES && ['One-way fare from', JM.money(routeInfo.fareKES)],
+      routeInfo && routeInfo.durationMinutes && ['Flight time', `About ${routeInfo.durationMinutes < 60 ? `${routeInfo.durationMinutes} minutes` : JM.fmtDur(routeInfo.durationMinutes)}`],
+      routeInfo && ['Frequency', routeInfo.frequency],
+      !routeInfo && destination.duration && ['Flight time', destination.duration],
+      !routeInfo && ['Schedule', destination.daily || 'Check available flights in the booking search']
+    ].filter(Boolean).map(([label, value]) => `<li><b>${escapeHtml(label)}:</b> ${escapeHtml(value)}</li>`).join('');
+    const mainPair = [origin.code, destination.code].sort().join('-');
+    const otherRoutes = [...new Set(JM.NET[destination.code] || [])]
+      .map(code => {
+        const info = JM.routeInfo(destination.code, code);
+        return info && {
+          code,
+          pair: [destination.code, code].sort().join('-'),
+          fare: info.fareKES ? `${JM.money(info.fareKES)} one way` : 'Fares vary; check availability',
+          time: info.durationMinutes ? `About ${info.durationMinutes < 60 ? `${info.durationMinutes} minutes` : JM.fmtDur(info.durationMinutes)}` : 'Duration not listed',
+          frequency: info.frequency
+        };
+      })
+      .filter(route => route && route.pair !== mainPair);
+
+    $('overview').innerHTML = `
+      <h3>Why Fly BUUPASS to ${escapeHtml(destination.name)}?</h3>
+      <h4>1. Affordable Fares</h4>
+      <p>Travelling to ${escapeHtml(destination.name)} doesnâ€™t have to cost a fortune. With BUUPASS, enjoy competitive ticket prices. Book your flight now and save on your trip to ${escapeHtml(destination.name)}.</p>
+      <h4>2. Convenient Schedules</h4>
+      <p>BUUPASS operates flights from ${escapeHtml(origin.name)}â€™s ${escapeHtml(origin.airport)} to ${escapeHtml(destination.name)}, offering travellers a convenient way to plan their trip.</p>
+      <h4>3. Reliability and On-Time Performance</h4>
+      <p>With BUUPASSâ€™s high on-time performance and industry-leading IOSA certification, you can travel with confidence, knowing your journey will be smooth and reliable.</p>
+      <h3>Flight Details</h3><ul>${flightDetails}</ul>
+      ${otherRoutes.length ? `<h3>Other direct routes from ${escapeHtml(destination.name)}</h3>
+        <ul class="route-facts">${otherRoutes.map(route => `<li><b>${escapeHtml(destination.name)} to ${escapeHtml(JM.A[route.code].city)}:</b> ${escapeHtml(route.fare)}; ${escapeHtml(route.time)}; ${escapeHtml(route.frequency)}.</li>`).join('')}</ul>` : ''}
+      <h4>Flexible Payment Options with Jaza Pole Pole</h4>
+      <p>Planning your trip to ${escapeHtml(destination.name)} is more convenient with Jaza Pole Pole, BUUPASSâ€™s instalment payment option. Book your flight today by <a href="#">filling this form</a> and spread the cost over time.</p>`;
+
+    $('todo').innerHTML = `<h3>What to do in ${escapeHtml(destination.name)}</h3><ul>${destination.todo.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+
+    $('after').innerHTML = `<b>Your ${escapeHtml(destination.name)} Adventure Awaits</b>
+      From affordable fares and reliable flights to unforgettable experiences, BUUPASS is your gateway to ${escapeHtml(destination.name)}. Whether youâ€™re seeking a relaxing break or an adventure, ${escapeHtml(destination.name)} has it all, and BUUPASS will get you there.
+      <b>Ready to Book?</b>
+      Donâ€™t miss out on this incredible journey. <a href="#bw-mount">Book your flight to ${escapeHtml(destination.name)}</a> now.
+      <p style="margin-top:14px">Time to Experience #MoreThanAJourney</p>`;
+
+    const otherKeys = DEST_KEYS.filter(otherKey => otherKey !== key).slice(0, 4);
+    $('more').innerHTML = otherKeys.map(otherKey => {
+      const other = DEST[otherKey];
+      return `<a class="dt-card" href="destination.html?d=${encodeURIComponent(otherKey)}">
+        ${imageHtml(photoUrl(PHOTOS[otherKey]), other.name)}
+        <span>Flights to ${escapeHtml(other.name)}</span>
+      </a>`;
+    }).join('');
+
+    const showTab = selected => ['overview', 'todo'].forEach(tab => {
+      $(tab).hidden = tab !== selected;
+      $('tab-' + tab).setAttribute('aria-selected', String(tab === selected));
+    });
+    $('tab-overview').addEventListener('click', () => showTab('overview'));
+    $('tab-todo').addEventListener('click', () => showTab('todo'));
+
+    const departure = new Date();
+    departure.setDate(departure.getDate() + 4);
+    const returning = new Date();
+    returning.setDate(returning.getDate() + 15);
+    const dateString = date => date.toISOString().slice(0, 10);
+    if (!JM.A[origin.code] || !JM.A[destination.code]) {
+      $('bw-mount').textContent = 'Flight search is unavailable for this destination.';
+    } else {
+      JMWidget.mount($('bw-mount'), {
+        from: origin.code,
+        to: destination.code,
+        dep: dateString(departure),
+        ret: dateString(returning),
+        adt: 1,
+        chd: 0,
+        inf: 0,
+        trip: 'roundtrip'
+      });
+    }
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.addEventListener('click', () => {
+      const open = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!open));
+      document.querySelector('.main-nav').classList.toggle('open', !open);
+    });
+    document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+  </script>
+</body>
+</html>
+

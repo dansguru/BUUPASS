@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUUPASS Travel Gallery | Routes and Journeys</title>
+  <meta name="description" content="Explore travel photos and destinations from BUUPASS journeys. Discover the roads and places that make bus travel across Kenya memorable.">
+<meta property="og:type" content="website">
+  <meta property="og:site_name" content="BUUPASS">
+  <meta property="og:title" content="BUUPASS Travel Gallery">
+  <meta property="og:description" content="Explore photos and destinations from BUUPASS journeys.">
+<link rel="icon" type="image/png" href="public/logo-2.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="BUUPASS home"><img class="brand-shield" src="public/logo-2.png" alt=""><span class="brand-text"><span class="brand-name">BUUPASS</span><span class="brand-tagline">EAGLE ABOVE THE REST</span></span></a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <nav class="main-nav" aria-label="Main navigation"><a href="/buses/index.html" aria-label="BUUPASS bus booking">Buses</a><a href="/index.html#booking-form" aria-label="BUUPASS flights">Flights</a><a href="/buses/ticket.html">Print Ticket</a><a href="/buses/about.html">About</a></nav>
+      <div class="nav-actions"><button class="language" aria-label="Language: English"><img src="public/uk.png" alt="UK flag"></button><a class="support" href="contact.html">Support</a><a class="account-btn" href="#account">My Account</a></div>
+    </div>
+  </header>
+  <div class="safety-banner"><strong>Booking notice:</strong> photos and seat details are for browsing; confirm trips directly with our team. <a href="contact.html">Contact BUUPASS</a>.</div>
+  <main class="info-main">
+    <section class="info-hero">
+      <p class="gallery-kicker">THE BUUPASS JOURNEY</p>
+      <h1>Every journey has a story.</h1>
+      <p>Explore the roads, people, and moments that make travelling together special.</p>
+    </section>
+    <section class="info-section gallery-section">
+      <div class="gallery-heading">
+        <div><span class="gallery-eyebrow">MOMENTS ON THE MOVE</span><h2>Life along the way</h2></div>
+        <p>Take a look around. When youâ€™re ready, find a route and start planning your next trip.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item gallery-item--wide gallery-item--feature">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 1"><img src="public/gallery-1.jpg" alt="BUUPASS travel moment"></button>
+          <figcaption><span>01 / ON THE ROAD</span><b>Make the miles memorable.</b></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 2"><img src="public/gallery-2.jpg" alt="A moment from the BUUPASS journey"></button>
+          <figcaption><span>02 / THE JOURNEY</span><b>See where the road takes you.</b></figcaption>
+        </figure>
+        <figure class="gallery-item gallery-item--tall">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 3"><img src="public/gallery-3.jpg" alt="BUUPASS destination view"></button>
+          <figcaption><span>03 / DESTINATIONS</span><b>New places, closer together.</b></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 4"><img src="public/gallery-4.jpg" alt="BUUPASS travel scene"></button>
+          <figcaption><span>04 / TRAVEL</span><b>Your next chapter starts here.</b></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 5"><img src="public/gallery-5.jpg" alt="A view from a BUUPASS trip"></button>
+          <figcaption><span>05 / ALONG THE WAY</span><b>Enjoy the view.</b></figcaption>
+        </figure>
+        <figure class="gallery-item gallery-item--wide">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 6"><img src="public/gallery-6.jpg" alt="BUUPASS road and scenery"></button>
+          <figcaption><span>06 / OPEN ROADS</span><b>More than getting there.</b></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 7"><img src="public/gallery-7.jpg" alt="BUUPASS travel experience"></button>
+          <figcaption><span>07 / TOGETHER</span><b>Good journeys are shared.</b></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button class="gallery-open" type="button" aria-label="View BUUPASS gallery photo 8"><img src="public/gallery-8.jpg" alt="BUUPASS destination and travel"></button>
+          <figcaption><span>08 / YOUR NEXT TRIP</span><b>Choose a route. Go further.</b></figcaption>
+        </figure>
+      </div>
+      <div class="info-actions"><a class="info-action" href="index.html#ticket">Find your route</a></div>
+    </section>
+  </main>
+  <div class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Gallery photo" aria-hidden="true">
+    <button class="gallery-lightbox-close" type="button" aria-label="Close photo">&times;</button>
+    <img src="public/gallery-1.jpg" alt="BUUPASS gallery photo">
+    <p></p>
+  </div>
+  <script src="site-config.js"></script><script src="site.js"></script><script src="auth.js"></script>
+  <script>
+    const lightbox = document.querySelector('.gallery-lightbox');
+    const lightboxImage = lightbox.querySelector('img');
+    const lightboxCaption = lightbox.querySelector('p');
+    const closeLightbox = () => { lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden', 'true'); document.body.classList.remove('gallery-open'); };
+    document.querySelector('.gallery-grid').addEventListener('click', (event) => {
+      const button = event.target.closest('.gallery-open');
+      if (!button) return;
+      const image = button.querySelector('img');
+      const caption = button.parentElement.querySelector('figcaption b');
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCaption.textContent = caption.textContent;
+      lightbox.classList.add('show');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('gallery-open');
+      lightbox.querySelector('.gallery-lightbox-close').focus();
+    });
+    lightbox.querySelector('.gallery-lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && lightbox.classList.contains('show')) closeLightbox(); });
+  </script>
+</body>
+</html>
+
+
+
+

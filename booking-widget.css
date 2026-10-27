@@ -1,0 +1,95 @@
+/* Search widget styles. Uses colour variables from styles.css (--pink, --deep-pink, --yellow, --green). */
+.bw { position: relative; }
+.bw-dim { position: fixed; inset: 0; background: rgba(41, 39, 43, .55); z-index: 40; }
+.bw-panel { position: relative; z-index: 50; background: var(--pink, #ec007a); color: #fff; border-radius: 5px; padding: 16px 24px 26px; }
+.bw-trips { display: flex; align-items: center; gap: 2px; margin-bottom: 14px; }
+.bw-trips label { position: relative; padding: 10px 16px; border-radius: 5px; font-weight: 600; cursor: pointer; }
+.bw-trips label.on { background: #fff; color: var(--pink, #ec007a); font-weight: 500; }
+.bw-trips input { position: absolute; opacity: 0; pointer-events: none; }
+.bw-trips label:focus-within { outline: 2px solid var(--yellow, #ffe000); outline-offset: 2px; }
+.bw-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .5fr) 116px 98px; gap: 10px; }
+.bw-route { display: flex; position: relative; min-width: 0; }
+.bw-box { display: flex; align-items: center; height: 45px; min-width: 0; background: #fff; border: 1px solid #d8d4db; border-radius: 5px; color: #55515d; }
+.bw-route .bw-box { flex: 1; }
+.bw-route .bw-box:first-child { border-radius: 5px 0 0 5px; border-right: 1px solid #c9c4cc; }
+.bw-route .bw-box:last-child { border-radius: 0 5px 5px 0; border-left: 0; }
+.bw-row.multicity { grid-template-columns: minmax(0, 1.4fr) minmax(250px, .5fr) 116px 98px; }
+.bw-box i { flex: none; padding-left: 12px; color: var(--pink, #ec007a); font-style: normal; font-size: 17px; }
+.bw-pax i { display: flex; align-items: center; }
+.bw-pax i svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.bw-box input { width: 100%; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; padding: 0 12px; color: #3b383e; font: inherit; }
+.bw-box:focus-within, .bw-dates button:focus-visible, .bw-pax:focus-visible, .bw-pax.open { outline: 2px solid var(--yellow, #ffe000); outline-offset: -2px; }
+.bw-swap { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; width: 30px; height: 30px; border: 0; border-radius: 50%; background: var(--pink, #ec007a); color: #fff; font-size: 18px; line-height: 1; padding: 0; cursor: pointer; }
+.bw-dates { overflow: hidden; }
+.bw-dates button { flex: 1; height: 100%; border: 0; background: transparent; font: inherit; color: #3b383e; text-align: left; padding: 0 12px; display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.bw-dates button { transition: background .18s ease, color .18s ease; }
+.bw-dates[data-active="dep"] [data-d="dep"], .bw-dates[data-active="ret"] [data-d="ret"] { background: #fdeaf4; color: var(--pink, #ec007a); }
+.bw-dates button + button { border-left: 1px solid #d8d4db; }
+.bw-dates button i { padding: 0; }
+.bw-dates.oneway button[data-d=ret] { display: none; }
+.bw-pax { cursor: pointer; font: inherit; justify-content: space-between; padding-right: 10px; }
+.bw-pax b { color: var(--pink, #ec007a); font-size: 20px; transition: transform .2s; }
+.bw-pax.open b { transform: rotate(180deg); }
+.bw-search { border: 0; border-radius: 5px; background: var(--green, #a6d900); color: #333; font-weight: 800; cursor: pointer; font: inherit; font-weight: 800; }
+.bw-promoin { margin-top: 10px; height: 40px; border: 0; border-radius: 5px; padding: 0 12px; width: 260px; max-width: 100%; }
+.bw-msg { margin: 8px 0 0; min-height: 1em; font-size: 13px; }
+.bw-search.is-loading { display: inline-flex; align-items: center; justify-content: center; gap: 5px; }
+.bw-dots { display: inline-flex; align-items: center; gap: 4px; height: 1em; }
+.bw-dots i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; animation: bw-dot 1s ease-in-out infinite; }
+.bw-dots i:nth-child(2) { animation-delay: .15s; }
+.bw-dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes bw-dot { 0%, 60%, 100% { opacity: .35; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
+.bw-loading-screen { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; color: var(--pink, #ec007a); background: rgb(24 20 27 / 42%); }
+.bw-loading-screen[hidden] { display: none; }
+.bw-loading-screen .bw-dots { gap: 8px; height: 20px; }
+.bw-loading-screen .bw-dots i { width: 10px; height: 10px; }
+.bw-pop { position: absolute; z-index: 60; background: #fff; color: #3b383e; border-radius: 8px; box-shadow: 0 8px 26px #0003; padding: 14px 18px 16px; top: calc(100% - 14px); }
+.bw-pop[hidden] { display: none; }
+.bw-pop:not([hidden]) { animation: bw-pop-in .2s ease-out both; }
+@keyframes bw-pop-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+.bw-pop h3 { margin: 0 0 8px; color: var(--pink, #ec007a); font-size: 19px; }
+.bw-list { left: 24px; width: min(560px, calc(100% - 48px)); max-height: 340px; overflow-y: auto; }
+.bw-list h4 { margin: 12px 0 4px; font-size: 13px; color: var(--pink, #ec007a); }
+.bw-list button { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 9px 4px; font: inherit; color: #3b383e; cursor: pointer; border-radius: 4px; }
+.bw-list button:hover, .bw-list button:focus-visible { background: #fdeaf4; outline: 0; }
+.bw-empty { color: #6a666d; margin: 8px 0; }
+.bw-cal { left: 24px; right: 24px; padding-bottom: 14px; }
+.bw-months { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 6px 40px 0; }
+.bw-month h4 { margin: 0 0 8px; text-align: center; color: var(--pink, #ec007a); font-size: 17px; }
+.bw-wd, .bw-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+.bw-wd span { font-size: 13px; padding: 6px 0; }
+.bw-days button { height: 36px; border: 0; background: none; font: inherit; font-weight: 700; color: #3b383e; cursor: pointer; position: relative; }
+.bw-days button:disabled { color: #b4b0b8; font-weight: 500; cursor: default; }
+.bw-days button:not(:disabled):hover { color: var(--pink, #ec007a); }
+.bw-days .today { box-shadow: inset 0 0 0 2px var(--yellow, #ffe000); border-radius: 50%; }
+.bw-days .in { background: #fdeaf4; }
+.bw-days .sel { color: #fff; }
+.bw-days .sel::before { content: ""; position: absolute; inset: 1px calc(50% - 17px); border-radius: 50%; background: var(--pink, #ec007a); z-index: -1; }
+.bw-days button { z-index: 0; }
+.bw-legend { position: absolute; right: 24px; top: 40px; border: 2px solid #b4b0b8; color: #8a868d; border-radius: 14px; padding: 1px 12px; font-size: 12px; font-weight: 700; }
+.bw-nav { position: absolute; top: 76px; width: 32px; height: 32px; border: 0; background: none; color: var(--pink, #ec007a); font-size: 34px; line-height: 1; cursor: pointer; }
+.bw-nav:disabled { color: #c4c0c6; cursor: default; }
+.bw-nav.prev { left: 12px; } .bw-nav.next { right: 12px; }
+.bw-done { text-align: center; margin-top: 14px; }
+.bw-donebtn { border: 1px solid var(--pink, #ec007a); background: #fff; color: var(--pink, #ec007a); border-radius: 20px; padding: 7px 34px; font: inherit; font-weight: 700; cursor: pointer; }
+.bw-paxpop { right: 124px; width: 300px; }
+.bw-prow { display: flex; align-items: center; gap: 10px; padding: 8px 0; }
+.bw-prow div { flex: 1; font-size: 15px; } .bw-prow small { display: block; font-size: 11px; color: #6a666d; }
+.bw-prow button { width: 34px; height: 34px; border: 0; border-radius: 4px; background: var(--pink, #ec007a); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+.bw-prow output { min-width: 22px; text-align: center; }
+@media (max-width: 900px) {
+  .bw-panel { padding: 14px; }
+  .bw-row { grid-template-columns: 1fr 1fr; }
+  .bw-row.multicity { grid-template-columns: 1fr 1fr; }
+  .bw-route { grid-column: 1 / -1; flex-direction: column; }
+  .bw-route .bw-box:first-child, .bw-route .bw-box:last-child { border-radius: 5px; border: 1px solid #d8d4db; }
+  .bw-route .bw-box + .bw-swap + .bw-box { margin-top: 8px; }
+  .bw-swap { left: auto; right: 12px; }
+  .bw-dates { grid-column: 1 / -1; }
+  .bw-list, .bw-cal, .bw-paxpop { left: 8px; right: 8px; width: auto; }
+  .bw-months { grid-template-columns: 1fr; padding: 0 30px; }
+  .bw-month + .bw-month { display: none; }
+  .bw-legend { position: static; display: inline-block; margin-bottom: 8px; }
+  .bw-nav { top: 88px; }
+}
+@media (prefers-reduced-motion: reduce) { .bw-pax b { transition: none; } .bw-dots i, .bw-pop:not([hidden]) { animation: none; } }

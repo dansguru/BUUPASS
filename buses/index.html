@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUUPASS Official Website | Bus Booking in Kenya</title>
+  <meta name="description" content="Visit the official BUUPASS website for bus routes, travel information, booking assistance and customer support in Kenya.">
+<meta property="og:type" content="website">
+  <meta property="og:site_name" content="BUUPASS">
+  <meta property="og:title" content="BUUPASS Official Website | Bus Booking in Kenya">
+  <meta property="og:description" content="Official BUUPASS website for bus routes, travel information, booking assistance and customer support in Kenya.">
+<meta property="og:image" content="/public/logo-2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="public/logo-2.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="auth.css">
+  </head>
+<body data-show-safety="true">
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="BUUPASS home">
+        <img class="brand-shield" src="public/logo-2.png" alt="">
+        <span class="brand-text">
+          <span class="brand-name">BUUPASS</span>
+          <span class="brand-tagline">EAGLE ABOVE THE REST</span>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <nav class="main-nav" aria-label="Main navigation"><a href="/buses/index.html" aria-label="BUUPASS bus booking">Buses</a><a href="/index.html#booking-form" aria-label="BUUPASS flights">Flights</a><a href="/buses/ticket.html">Print Ticket</a><a href="/buses/about.html">About</a></nav>
+      <div class="nav-actions">
+        <button class="language" aria-label="Language: English">
+          <img src="public/uk.png" alt="UK flag">
+        </button>
+        <a class="support" href="contact.html">Support</a>
+        <a class="account-btn" href="#account">My Account</a>
+      </div>
+    </div>
+  </header>
+  <div class="safety-banner"><strong>Book safely:</strong> confirm bookings and payment instructions with BUUPASS before paying. <a href="contact.html">Contact BUUPASS</a>.</div>
+
+  <main>
+    <section class="hero" aria-label="BUUPASS routes">
+      <div class="hero-slide is-active" style="background-image:url('public/cta-1.png')"></div>
+      <div class="hero-slide" style="background-image:url('public/hero-2.png')"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-inner">
+        <div class="routes">
+          <h1>BUUPASS bus routes and booking in Kenya</h1>
+          <span class="route-pin pin-kampala"><b>Kampala</b></span>
+          <span class="route-pin pin-nairobi"><b>Nairobi</b></span>
+          <span class="route-pin pin-malindi"><b>Malindi</b></span>
+          <span class="route-pin pin-kilifi"><b>Kilifi</b></span>
+          <span class="route-pin pin-mpeketoni"><b>Mpeketoni</b></span>
+          <span class="route-pin pin-mombasa"><b>Mombasa</b></span>
+        </div>
+        <div class="hero-logo">
+          <img src="public/logo-2.png" alt="BUUPASS">
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-shell" id="ticket" aria-label="Search for a bus">
+      <div class="booking-top">
+        <div class="trip-options">
+          <label><input type="radio" name="trip" value="one-way" checked> One Way</label>
+          <label><input type="radio" name="trip" value="round-trip"> Round Trip</label>
+        </div>
+        <p>Book your next ticket using
+          <img class="traveler-logo" src="public/logo.svg" alt="Travler">
+        </p>
+      </div>
+      <form class="booking-form" id="bookingForm">
+        <label class="booking-field">
+          <span class="field-icon">â–£</span>
+          <span class="field-content"><small>FROM</small><input type="text" value="NAIROBI" aria-label="From" required></span>
+        </label>
+        <label class="booking-field">
+          <span class="field-icon pin-icon">â™§</span>
+          <span class="field-content"><small>TO</small><input type="text" value="MTITO ANDEI" aria-label="To" required></span>
+        </label>
+        <label class="booking-field date-field">
+          <span class="field-icon">â–¢</span>
+          <span class="field-content"><small>TRAVEL DATE <span class="quick-dates"><button type="button" data-offset="0">Today</button><button type="button" data-offset="1">Tom</button></span></small><input type="text" id="travelDate" placeholder="Date" onfocus="(this.type='date')" aria-label="Travel date" required></span>
+        </label>
+        <label class="booking-field date-field return-date-field" id="returnDateField" hidden>
+          <span class="field-icon">â†©</span>
+          <span class="field-content"><small>RETURN DATE</small><input type="date" id="returnDate" aria-label="Return date"></span>
+        </label>
+        <button class="search-btn" type="submit">SEARCH BUS</button>
+      </form>
+    </section>
+
+    <div class="content-wrap">
+      <section class="content-section" id="about">
+        <h2>Amenities</h2>
+        <p class="section-subtitle">Recognized and trusted across Kenya</p>
+        <div class="amenities-grid">
+          <article class="info-card amenity-card">
+            <img src="public/wi-fi.png" alt="Wi-Fi">
+            <p>Free Wi-Fi</p>
+          </article>
+          <article class="info-card amenity-card">
+            <img src="public/power.png" alt="Power outlet">
+            <p>Power Outlets</p>
+          </article>
+          <article class="info-card amenity-card">
+            <img src="public/seats.png" alt="Extra legroom seat">
+            <p>Extra Legroom</p>
+          </article>
+          <article class="info-card amenity-card">
+            <img src="public/vip.png" alt="VIP seating">
+            <p>VIP Seating</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section why-section">
+        <h2>Why Us</h2>
+        <p class="section-subtitle">Experience the best transport service in the region</p>
+        <div class="benefits-grid">
+          <article class="info-card benefit-card">
+            <div class="benefit-icon pink"><img src="public/save.png" alt=""></div>
+            <h3>Save</h3>
+            <p>Pay less when using our new Mobile App. You can save up to 25% of your Promo Cash balance in a single purchase.</p>
+          </article>
+          <article class="info-card benefit-card">
+            <div class="benefit-icon lavender"><img src="public/routes.png" alt=""></div>
+            <h3>Multiple Routes</h3>
+            <p>We cover multiple routes and the widest connectivity in Kenya.</p>
+          </article>
+          <article class="info-card benefit-card">
+            <div class="benefit-icon mint"><img src="public/fares.png" alt=""></div>
+            <h3>Earn Credits</h3>
+            <p>Receive more credit during promotional periods which will be added into your Promo Cash account.</p>
+          </article>
+          <article class="info-card benefit-card">
+            <div class="benefit-icon blue"><img src="public/package.png" alt=""></div>
+            <h3>Parcel Delivery</h3>
+            <p>We Deliver parcels in all major towns in the country.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-carousel" aria-label="Promotions" data-steps="2">
+        <div class="cta-track">
+          <a class="cta-slide" href="#ticket"><img src="public/cta-1.png" alt="Travel to Mombasa â€” book your ticket"></a>
+          <a class="cta-slide" href="#app"><img src="public/cta-2.png" alt="Download our app on the Play Store"></a>
+          <a class="cta-slide" href="#ticket"><img src="public/cta-1.png" alt="Travel to Mombasa â€” book your ticket"></a>
+        </div>
+        <div class="cta-dots" role="tablist" aria-label="Promotion slides">
+          <button class="is-active" aria-label="Slide 1"></button>
+          <button aria-label="Slide 2"></button>
+        </div>
+      </section>
+    </div>
+
+    <section class="routes-card" id="routes" aria-label="Our routes">
+      <div class="routes-head">
+        <div class="routes-title">
+          <span class="routes-icon"><i></i></span>
+          <div>
+            <h2>Our routes</h2>
+            <p>Search BUUPASS route options across Kenya and East Africa. Trip and seat details shown here are samples until confirmed by our team.</p>
+          </div>
+        </div>
+        <label class="route-search">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="routeSearch" placeholder="Search a route" aria-label="Search a route">
+        </label>
+      </div>
+      <div class="route-chips" id="routeChips"></div>
+      <div class="routes-more">
+        <button type="button" id="loadMore">Load more routes
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <a class="all-route-details" href="routes/">Browse all routes and schedules</a>
+      </div>
+    </section>
+
+    <section class="content-wrap content-section" aria-labelledby="booking-info-heading">
+      <h2 id="booking-info-heading">Search bus routes and request a BUUPASS booking</h2>
+      <p>Choose your origin, destination, and travel date to review the trip and seat options shown on this website. These schedules, fares, and seat availability are sample information, not live inventory. Contact the BUUPASS team to confirm current details and payment instructions before paying. A search or seat selection does not reserve a seat or issue a ticket.</p>
+      <h2>Frequently asked questions about BUUPASS</h2>
+      <h3>How do I request a bus booking?</h3>
+      <p>Search for your route and travel date, review the options, then contact BUUPASS to confirm the trip, fare, and next steps.</p>
+      <h3>Are the displayed schedules and fares current?</h3>
+      <p>The website currently displays sample schedules, fares, and seat availability. Confirm current details with BUUPASS before paying.</p>
+      <h3>Can I pay online on this website?</h3>
+      <p>No. This website does not process online payments. Confirm payment instructions directly with BUUPASS and do not pay through an unverified link.</p>
+    </section>
+
+    <section class="app-section" id="app" aria-label="Get the Travler app">
+      <img class="app-phone" src="https://bus-car.co.ke/assets/WEBP/travler-phone-compressed-removebg-preview.png" alt="Travler app">
+      <div class="app-stores">
+        <a href="#"><img class="store-google" src="public/googleapp.png" alt="Get it on Google Play"></a>
+        <a href="#"><img class="store-apple" src="public/apple.png" alt="Download on the App Store"></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-logos">
+        <a class="brand footer-brand" href="index.html" aria-label="BUUPASS home">
+          <img class="brand-shield" src="public/logo-2.png" alt="">
+          <span class="brand-text">
+            <span class="brand-name">BUUPASS</span>
+            <span class="brand-tagline">EAGLE ABOVE THE REST</span>
+          </span>
+        </a>
+        <img class="footer-travler" src="public/travler-logo.webp" alt="Travler">
+        <img class="footer-voltic" src="public/voltic-logo.svg" alt="Voltic">
+        <div class="footer-stores">
+          <a href="#"><img src="public/googleapp.png" alt="sGet it on Google Play"></a>
+          <a href="#"><img src="public/apple.png" alt="Download on the App Store"></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a class="footer-mail" href="#contact" aria-label="Email us">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="about.html">About</a>
+          <a href="ticket.html">Print Ticket</a>
+          <a href="contact.html">Get In Touch</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy Policy</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h2.5V4.5H14C11.8 4.5 10.5 5.9 10.5 8v2H8v3.5h2.5V21H14v-7.5h2.4l.6-3.5H14V8.4c0-.3.2-.4.4-.4Z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.8 3h3l-6.6 7.5L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2.3 3h6.2l4.3 5.7L17.8 3Zm-1 16.2h1.7L7.6 4.7H5.8l11 14.5Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5V20M4 4.5v.5M9 20v-6.5a3.5 3.5 0 0 1 7 0V20M9 9.5V20"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site-config.js"></script>
+  <script src="site.js"></script>
+  <script src="routes.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    // Hero background slideshow (hero-1 <-> hero-2)
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
+      }, 5000);
+    }
+
+    // CTA carousel (2 banners visible, slides by one)
+    (() => {
+      const box = document.querySelector('.cta-carousel');
+      const track = box.querySelector('.cta-track');
+      const dots = box.querySelectorAll('.cta-dots button');
+      const steps = dots.length;
+      let i = 0, timer;
+      const go = (n) => {
+        i = (n + steps) % steps;
+        track.style.setProperty('--i', i);
+        dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
+      };
+      const start = () => { timer = setInterval(() => go(i + 1), 4500); };
+      dots.forEach((d, k) => d.addEventListener('click', () => { clearInterval(timer); go(k); start(); }));
+      start();
+    })();
+
+    // Our routes
+    (() => {
+      const routes = window.BuscarRouteData.getRoutes();
+
+      const chips = document.getElementById('routeChips');
+      const search = document.getElementById('routeSearch');
+      const more = document.getElementById('loadMore');
+      const PAGE = 24;
+      let shown = 48;
+      let loading = true;
+      const pin = '<svg viewBox="0 0 24 30" width="10" height="12" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M12 28C12 28 2 17 2 11a10 10 0 0 1 20 0c0 6-10 17-10 17z"/><circle cx="12" cy="11" r="3"/></svg>';
+
+      // Replace the body of this function with your real API call (fetch('/api/routes')...)
+      const fetchRoutes = () => new Promise(resolve => setTimeout(() => resolve(routes), 1400));
+
+      function skeletons(n) {
+        const frag = document.createDocumentFragment();
+        for (let k = 0; k < n; k++) {
+          const s = document.createElement('span');
+          s.className = 'route-chip skeleton';
+          s.style.setProperty('--w', (150 + ((k * 37) % 110)) + 'px');
+          frag.appendChild(s);
+        }
+        return frag;
+      }
+
+      function selectRoute(a, b) {
+        const inputs = document.querySelectorAll('#bookingForm input[type="text"]');
+        inputs[0].value = a;
+        inputs[1].value = b;
+        const shell = document.getElementById('ticket');
+        shell.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        shell.classList.remove('flash');
+        void shell.offsetWidth;
+        shell.classList.add('flash');
+        setTimeout(() => document.getElementById('travelDate').focus({ preventScroll: true }), 700);
+      }
+
+      function render() {
+        chips.innerHTML = '';
+        if (loading) { chips.appendChild(skeletons(24)); more.parentElement.style.display = 'none'; return; }
+        const q = search.value.trim().toUpperCase();
+        const list = routes.filter(([a, b]) => !q || (a + ' ' + b).includes(q));
+        const recentKey = window.BuscarSite.getState().searches[0]?.key;
+        const recentRoute = recentKey ? recentKey.split('|').slice(0, 2) : [];
+        if (!q && recentRoute.length === 2) {
+          list.sort((left, right) => {
+            const leftRecent = left[0] === recentRoute[0] && left[1] === recentRoute[1];
+            const rightRecent = right[0] === recentRoute[0] && right[1] === recentRoute[1];
+            return Number(rightRecent) - Number(leftRecent);
+          });
+        }
+        const visible = q ? list : list.slice(0, shown);
+        visible.forEach(([a, b]) => {
+          const el = document.createElement('button');
+          el.type = 'button';
+          el.className = 'route-chip';
+          el.innerHTML = pin + '<span>' + a + ' â†’ ' + b + '</span>';
+          el.addEventListener('click', () => selectRoute(a, b));
+          chips.appendChild(el);
+        });
+        more.parentElement.style.display = (q || shown >= list.length) ? 'none' : '';
+      }
+
+      more.addEventListener('click', () => {
+        more.parentElement.style.display = 'none';
+        chips.appendChild(skeletons(12));
+        setTimeout(() => { shown += PAGE; render(); }, 700);
+      });
+      search.addEventListener('input', () => { if (!loading) render(); });
+
+      render();
+      fetchRoutes().then(() => { loading = false; render(); });
+    })();
+
+    // Today / Tom quick dates
+    const dateInput = document.getElementById('travelDate');
+    const returnDateInput = document.getElementById('returnDate');
+    const returnDateField = document.getElementById('returnDateField');
+    const bookingForm = document.getElementById('bookingForm');
+    const isoDate = (offset) => {
+      const d = new Date();
+      d.setDate(d.getDate() + offset);
+      const p = (n) => String(n).padStart(2, '0');
+      return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+    };
+    const addDays = (date, days) => {
+      const [year, month, day] = date.split('-').map(Number);
+      const value = new Date(year, month - 1, day);
+      value.setDate(value.getDate() + days);
+      return [value.getFullYear(), String(value.getMonth() + 1).padStart(2, '0'), String(value.getDate()).padStart(2, '0')].join('-');
+    };
+    function syncReturnDate(minimum, chooseNextDay) {
+      returnDateInput.min = minimum;
+      if (chooseNextDay && !returnDateInput.value) returnDateInput.value = addDays(minimum, 1);
+      if (returnDateInput.value && returnDateInput.value < minimum) returnDateInput.value = minimum;
+    }
+    function syncTripType() {
+      const roundTrip = document.querySelector('input[name="trip"]:checked').value === 'round-trip';
+      returnDateField.hidden = !roundTrip;
+      returnDateInput.required = roundTrip;
+      bookingForm.classList.toggle('is-round-trip', roundTrip);
+      if (roundTrip) {
+        const outboundDate = dateInput.type === 'date' && dateInput.value ? dateInput.value : isoDate(0);
+        syncReturnDate(outboundDate, true);
+      }
+    }
+    document.querySelectorAll('input[name="trip"]').forEach((radio) => radio.addEventListener('change', syncTripType));
+    dateInput.addEventListener('change', () => {
+      const outboundDate = dateInput.value || isoDate(0);
+      syncReturnDate(outboundDate, false);
+    });
+    document.querySelectorAll('.quick-dates button').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dateInput.type = 'date';
+        dateInput.value = isoDate(Number(btn.dataset.offset));
+        syncReturnDate(dateInput.value, false);
+        document.querySelectorAll('.quick-dates button').forEach((b) => b.classList.toggle('is-on', b === btn));
+      });
+    });
+
+    // Search -> results.html
+    document.getElementById('bookingForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const [fromEl, toEl] = document.querySelectorAll('#bookingForm input[type="text"]:not(#travelDate)');
+      const from = fromEl.value.trim().toUpperCase();
+      const to = toEl.value.trim().toUpperCase();
+      if (!from || !to) { (from ? toEl : fromEl).focus(); return; }
+      const date = (dateInput.type === 'date' && dateInput.value) ? dateInput.value : isoDate(0);
+      const trip = document.querySelector('input[name="trip"]:checked').value;
+      const returnDate = returnDateInput.value;
+      if (trip === 'round-trip' && (!returnDate || returnDate < date)) {
+        returnDateInput.min = date;
+        returnDateInput.focus();
+        return;
+      }
+      const variant = window.BuscarSite.recordSearch(from, to, date);
+      const search = { from, to, date, trip, variant: String(variant) };
+      if (trip === 'round-trip') search.returnDate = returnDate;
+      const params = new URLSearchParams(search);
+      window.location.href = 'results.html?' + params.toString();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
